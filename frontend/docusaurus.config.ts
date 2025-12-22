@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Physical AI & Humanoid Robotics',
   tagline: 'Interactive Technical Textbook for AI Engineers',
-  favicon: 'img/favicon.svg',
+  favicon: 'img/favicon.png',
 
   // Set the production url of your site here
   url: 'https://hafizaliahmed.github.io',

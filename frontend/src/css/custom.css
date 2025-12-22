@@ -5,14 +5,14 @@
 
 /* Light mode (default) */
 :root {
-  /* Pure black and white palette */
-  --ifm-color-primary: #000000;
-  --ifm-color-primary-dark: #000000;
-  --ifm-color-primary-darker: #000000;
-  --ifm-color-primary-darkest: #000000;
-  --ifm-color-primary-light: #333333;
-  --ifm-color-primary-lighter: #666666;
-  --ifm-color-primary-lightest: #999999;
+  /* Indigo/Blue palette */
+  --ifm-color-primary: #4f46e5;
+  --ifm-color-primary-dark: #4338ca;
+  --ifm-color-primary-darker: #3730a3;
+  --ifm-color-primary-darkest: #312e81;
+  --ifm-color-primary-light: #6366f1;
+  --ifm-color-primary-lighter: #818cf8;
+  --ifm-color-primary-lightest: #a5b4fc;
 
   /* Background colors - WHITE for light mode */
   --ifm-background-color: #ffffff;
@@ -66,14 +66,16 @@
 }
 
 /* Dark mode - inverted black and white */
+/* Dark mode - inverted black and white */
 [data-theme='dark'] {
-  --ifm-color-primary: #ffffff;
-  --ifm-color-primary-dark: #e5e5e5;
-  --ifm-color-primary-darker: #d4d4d4;
-  --ifm-color-primary-darkest: #a3a3a3;
-  --ifm-color-primary-light: #ffffff;
-  --ifm-color-primary-lighter: #ffffff;
-  --ifm-color-primary-lightest: #ffffff;
+  /* Indigo/Blue palette - Inverted for dark mode */
+  --ifm-color-primary: #6366f1;
+  --ifm-color-primary-dark: #4f46e5;
+  --ifm-color-primary-darker: #4338ca;
+  --ifm-color-primary-darkest: #3730a3;
+  --ifm-color-primary-light: #818cf8;
+  --ifm-color-primary-lighter: #a5b4fc;
+  --ifm-color-primary-lightest: #c7d2fe;
 
   /* Background colors - BLACK for dark mode */
   --ifm-background-color: #000000;
@@ -301,43 +303,44 @@
 
 /* Buttons */
 .button {
-  background-color: var(--ifm-font-color-base);
-  color: var(--ifm-background-color) !important;
-  border: 2px solid var(--ifm-font-color-base);
-  border-radius: 0;
+  background-color: var(--ifm-color-primary);
+  color: #ffffff !important;
+  border: 2px solid var(--ifm-color-primary);
+  border-radius: 4px;
 }
 
 .button:hover {
-  background-color: var(--ifm-background-color);
-  color: var(--ifm-font-color-base) !important;
+  background-color: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff !important;
 }
 
 .button--secondary {
-  background-color: var(--ifm-background-color);
-  color: var(--ifm-font-color-base) !important;
-  border: 2px solid var(--ifm-font-color-base);
+  background-color: transparent;
+  color: var(--ifm-color-primary) !important;
+  border: 2px solid var(--ifm-color-primary);
 }
 
 .button--secondary:hover {
-  background-color: var(--ifm-font-color-base);
-  color: var(--ifm-background-color) !important;
+  background-color: var(--ifm-color-primary);
+  color: #ffffff !important;
 }
 
 /* Ensure button text is white in dark mode */
 [data-theme='dark'] .button {
-  color: var(--ifm-background-color) !important;
+  color: #ffffff !important;
 }
 
 [data-theme='dark'] .button:hover {
-  color: var(--ifm-font-color-base) !important;
+  color: #ffffff !important;
 }
 
 [data-theme='dark'] .button--secondary {
-  color: var(--ifm-font-color-base) !important;
+  color: var(--ifm-color-primary) !important;
 }
 
 [data-theme='dark'] .button--secondary:hover {
-  color: var(--ifm-background-color) !important;
+  color: #ffffff !important;
 }
 
 /* Hero Section - Fix background and text colors for theme alignment */

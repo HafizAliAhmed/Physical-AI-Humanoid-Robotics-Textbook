@@ -16,13 +16,14 @@ export const SimpleChatInterface: React.FC<SimpleChatInterfaceProps> = ({ isDark
   const { siteConfig } = useDocusaurusContext();
 
   // Determine backend URL based on environment
+  // Determine backend URL
   const getBackendUrl = () => {
-    // If running on localhost, use local backend
-    if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
-      return 'http://localhost:8000';
+    // Check for configured backend URL first
+    if (siteConfig.customFields?.backendApiUrl) {
+      return siteConfig.customFields.backendApiUrl as string;
     }
-    // Otherwise use configured backend URL
-    return siteConfig.customFields?.backendApiUrl as string || 'http://localhost:8000';
+    // Fallback to localhost
+    return 'http://localhost:8000';
   };
 
   const backendApiUrl = getBackendUrl();
@@ -57,11 +58,13 @@ export const SimpleChatInterface: React.FC<SimpleChatInterfaceProps> = ({ isDark
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const bgColor = isDarkMode ? '#000000' : '#ffffff';
-  const textColor = isDarkMode ? '#ffffff' : '#000000';
-  const borderColor = isDarkMode ? '#404040' : '#d4d4d4';
-  const userMsgBg = isDarkMode ? '#1a1a1a' : '#f5f5f5';
-  const assistantMsgBg = isDarkMode ? '#0a0a0a' : '#ffffff';
+  const bgColor = isDarkMode ? '#111827' : '#ffffff';
+  const textColor = isDarkMode ? '#e5e7eb' : '#1f2937';
+  const borderColor = isDarkMode ? '#374151' : '#e5e7eb';
+  const userMsgBg = '#4f46e5'; // Indigo 600
+  const userMsgText = '#ffffff';
+  const assistantMsgBg = isDarkMode ? '#1f2937' : '#f3f4f6';
+  const assistantMsgText = textColor;
 
   // Save messages to localStorage whenever they change
   useEffect(() => {
@@ -175,8 +178,11 @@ export const SimpleChatInterface: React.FC<SimpleChatInterfaceProps> = ({ isDark
               style={{
                 padding: '8px 12px',
                 backgroundColor: msg.role === 'user' ? userMsgBg : assistantMsgBg,
-                border: `1px solid ${borderColor}`,
-                borderRadius: '0',
+                color: msg.role === 'user' ? userMsgText : assistantMsgText,
+                border: msg.role === 'user' ? 'none' : `1px solid ${borderColor}`,
+                borderRadius: '8px',
+                borderBottomRightRadius: msg.role === 'user' ? '0' : '8px',
+                borderBottomLeftRadius: msg.role === 'assistant' ? '0' : '8px',
                 fontSize: '14px',
                 lineHeight: '1.5',
                 whiteSpace: 'pre-wrap',
@@ -245,10 +251,10 @@ export const SimpleChatInterface: React.FC<SimpleChatInterfaceProps> = ({ isDark
           disabled={isLoading || !input.trim()}
           style={{
             padding: '8px 16px',
-            backgroundColor: textColor,
-            color: bgColor,
-            border: `1px solid ${textColor}`,
-            borderRadius: '0',
+            backgroundColor: '#4f46e5',
+            color: '#ffffff',
+            border: 'none',
+            borderRadius: '4px',
             fontSize: '14px',
             fontWeight: 600,
             cursor: isLoading || !input.trim() ? 'not-allowed' : 'pointer',

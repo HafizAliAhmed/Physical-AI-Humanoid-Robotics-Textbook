@@ -6,7 +6,7 @@ import Layout from '@theme/Layout';
 import styles from './index.module.css';
 
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
@@ -24,8 +24,8 @@ function HomepageHeader() {
   );
 }
 
-export default function Home(): JSX.Element {
-  const {siteConfig} = useDocusaurusContext();
+export default function Home() {
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
       title={`Welcome to ${siteConfig.title}`}
@@ -36,14 +36,14 @@ export default function Home(): JSX.Element {
           <div className="container">
             <div className="row">
               <div className="col col--4">
-                <h3>🤖 Comprehensive Coverage</h3>
+                <h3> Comprehensive Coverage</h3>
                 <p>
                   12 modules covering ROS 2, simulation, NVIDIA Isaac, VLA systems,
                   locomotion, manipulation, perception, and deployment.
                 </p>
               </div>
               <div className="col col--4">
-                <h3>💡 AI-Powered Q&A</h3>
+                <h3>💡 AI-Powered Q&A By Ali</h3>
                 <p>
                   Interactive chatbot answers questions using RAG technology -
                   all responses grounded in textbook content, no hallucinations.
